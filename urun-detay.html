@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ürün Detayı — ÜSTFORM</title>
+  <meta name="description" content="Üstform koleksiyonundan detaylar." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="images/ustform.png">
+</head>
+
+<body>
+
+  <!-- ── NAVİGASYON ── -->
+  <nav class="nav mega-nav">
+    <ul class="nav-links nav-left" id="navLinksLeft">
+      <li class="mega-hover" data-mega="erkek"><a href="urunler.html?kategori=erkek">ERKEK</a></li>
+      <li class="mega-hover" data-mega="kadin"><a href="urunler.html?kategori=kadin">KADIN</a></li>
+      <li><a href="hakkinda.html">HAKKINDA</a></li>
+      <li><a href="iletisim.html">İLETİŞİM</a></li>
+    </ul>
+
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Logo" class="nav-logo-img">
+    </a>
+
+    <ul class="nav-links nav-right" id="navLinksRight">
+      <li class="nav-ikonlar">
+        <a href="#" id="aramaToggle"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="giris.html" id="hesabimLinkKaan">Kaan</a>
+        <a href="#" class="nav-sepet" id="offcanvasSepetBtn"><i class="fa-solid fa-box"></i> <span id="sepetSayac"
+            style="font-size:0.75rem;">0</span></a>
+      </li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menüyü aç/kapa">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mega Menu -->
+  <div class="mega-menu" id="megaMenu">
+    <div class="mega-menu-ic" id="megaMenuIcerik"></div>
+  </div>
+
+  <!-- ── ÜRÜN DETAY İÇERİK ── -->
+  <div class="urun-detay-bolum">
+    <div class="detay-grid">
+      <!-- Görsel -->
+      <div class="detay-gorsel">
+        <div class="ana-gorsel">
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="500" fill="var(--gri-2)" />
+            <path d="M120 150 Q200 180 280 150 L320 220 L300 450 L100 450 L80 220 Z" fill="var(--gri-1)"
+              stroke="var(--yari-beyaz)" stroke-width="2" />
+            <text x="50%" y="50%" font-family="Bebas Neue" font-size="40" fill="var(--yari-beyaz)" text-anchor="middle"
+              dominant-baseline="middle">ÜSTFORM DETAY</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Bilgiler -->
+      <div class="detay-bilgi">
+        <div class="detay-baslik">
+          <h1 id="detayUrunIsim">Premium Oversize Tişört</h1>
+          <div class="detay-yildizlar" id="ustYildizKutusu" style="display: flex; align-items: center; gap: 5px;">
+            <span id="ustYildizlarIkonlar" style="color: var(--vurgu);">
+              <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+            </span>
+            <span id="ustYildizSayisi" style="color: var(--gri-3); font-size: 0.9rem; margin-left: 5px;">(0 Değerlendirme)</span>
+          </div>
+          <p class="detay-fiyat" id="detayUrunFiyat">899₺</p>
+        </div>
+
+        <p class="detay-aciklama">
+          %100 saf pamuk kullanılarak üretilmiş, nefes alabilen kumaş yapısıyla gün boyu konfor sağlayan premium
+          oversize tişört. Modern kesimi ile her kombininize uyum sağlar.
+        </p>
+
+        <!-- Renk Seçimi -->
+        <div class="secim-grubu">
+          <h4>Renk Seçimi</h4>
+          <div class="renkler" id="detayRenkler">
+            <div class="renk-nokta secili" style="background: #1a1a1a;" title="Siyah"></div>
+            <div class="renk-nokta" style="background: #e8e8e0; border: 1px solid #ccc;" title="Krem"></div>
+            <div class="renk-nokta" style="background: #4a5d23;" title="Haki"></div>
+          </div>
+        </div>
+
+        <!-- Beden Seçimi -->
+        <div class="secim-grubu">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h4>Beden Seçimi</h4>
+          </div>
+          <div class="bedenler" id="detayBedenler">
+            <button class="beden-btn">S</button>
+            <button class="beden-btn secili">M</button>
+            <button class="beden-btn">L</button>
+            <button class="beden-btn">XL</button>
+          </div>
+        </div>
+
+        <!-- Ekle Butonu -->
+        <div class="detay-aksiyon">
+          <button class="btn btn-birincil urun-detay-sepet-btn"
+            style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 15px;">
+            <i class="fa-solid fa-cart-plus"></i> Sepete Ekle
+          </button>
+        </div>
+
+        <div class="detay-akordeon">
+          <div class="akordeon-item">
+            <button class="akordeon-baslik">Kumaş Kalitesi & Kalıp <span class="akordeon-ikon">+</span></button>
+            <div class="akordeon-icerik">
+              <p>%100 Organik pamuk kullanılarak üretilmiştir. Ekstra yumuşak tuşeye sahiptir. Oversize (geniş)
+                kalıptır, kendi bedeninizi tercih edebilirsiniz.</p>
+            </div>
+          </div>
+          <div class="akordeon-item">
+            <button class="akordeon-baslik">Beden Ölçü Tablosu <span class="akordeon-ikon">+</span></button>
+            <div class="akordeon-icerik">
+              <p>S: En 54cm, Boy 72cm<br>M: En 56cm, Boy 74cm<br>L: En 58cm, Boy 76cm<br>XL: En 60cm, Boy 78cm</p>
+            </div>
+          </div>
+          <div class="akordeon-item">
+            <button class="akordeon-baslik">Baskı Kalitesi & Detaylar <span class="akordeon-ikon">+</span></button>
+            <div class="akordeon-icerik">
+              <p>Yüksek kalite emprime/transfer baskı tekniği kullanılmıştır. Çatlama veya dökülme yapmaz, uzun
+                ömürlüdür.</p>
+            </div>
+          </div>
+          <div class="akordeon-item">
+            <button class="akordeon-baslik">Bakım ve Yıkama Talimatları <span class="akordeon-ikon">+</span></button>
+            <div class="akordeon-icerik">
+              <p>30 derecede tersten yıkayınız. Ağartıcı kullanmayınız. Baskının üzerinden ütülemeyiniz.</p>
+            </div>
+          </div>
+          <div class="akordeon-item">
+            <button class="akordeon-baslik">Sürdürülebilirlik <span class="akordeon-ikon">+</span></button>
+            <div class="akordeon-icerik">
+              <p>Ürünlerimiz çevre dostu materyaller ve doğaya saygılı sürdürülebilir üretim teknikleri ile
+                hazırlanmaktadır.</p>
+            </div>
+          </div>
+          <div class="akordeon-item">
+            <button class="akordeon-baslik">İade & Değişim <span class="akordeon-ikon">+</span></button>
+            <div class="akordeon-icerik">
+              <p>Siparişinizi teslim aldıktan sonraki 14 gün içerisinde ücretsiz olarak iade veya değişim talebinde
+                bulunabilirsiniz.</p>
+            </div>
+          </div>
+          <div class="akordeon-item">
+            <button class="akordeon-baslik">Ürün Özellikleri <span class="akordeon-ikon">+</span></button>
+            <div class="akordeon-icerik">
+              <p>Kategori: Sokak Giyimi (Streetwear)<br>Yaka Tipi: Bisiklet Yaka<br>Kullanım: Günlük</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DEĞERLENDİRMELER VE YORUMLAR ── -->
+  <section class="yorumlar-bolum" style="margin: 40px auto; padding: 0 5%;">
+    <div class="bolum-baslik" style="margin-bottom: 20px;">
+      <h2>Değerlendirmeler</h2>
+    </div>
+    
+    <div class="yorumlar-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+      <!-- Puan Özeti ve Form -->
+      <div class="yorum-sol">
+        <div class="puan-ozeti" style="text-align: center; padding: 40px; background: var(--siyah); border: 1px solid var(--gri-1); border-radius: 8px; margin-bottom: 30px;">
+          <h1 id="genelOrtalama" style="font-size: 4rem; color: var(--beyaz); margin: 0; font-family: 'Bebas Neue', sans-serif;">0.0</h1>
+          <div id="genelYildizlar" style="color: var(--vurgu); font-size: 1.5rem; margin: 15px 0;">
+            <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+          </div>
+          <p id="toplamDegerlendirmeYazi" style="color: var(--gri-3); font-size: 1rem;">0 Değerlendirme</p>
+        </div>
+
+        <div class="yorum-formu-kutu" style="background: var(--siyah); border: 1px solid var(--gri-1); padding: 40px; border-radius: 8px;">
+          <h3 style="margin-bottom: 25px; font-size: 1.5rem; color: var(--beyaz);">Yorum Yap</h3>
+          <form id="yorumForm">
+            <div class="form-grup" style="margin-bottom: 20px;">
+              <label style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--beyaz);">Puanınız</label>
+              <div class="yildiz-secim" id="yildizSecici" style="color: var(--vurgu); font-size: 1.8rem; cursor: pointer; display: flex; gap: 8px;">
+                <i class="fa-solid fa-star" data-deger="1"></i>
+                <i class="fa-solid fa-star" data-deger="2"></i>
+                <i class="fa-solid fa-star" data-deger="3"></i>
+                <i class="fa-solid fa-star" data-deger="4"></i>
+                <i class="fa-solid fa-star" data-deger="5"></i>
+              </div>
+              <input type="hidden" id="yorumPuan" value="5">
+            </div>
+            <div class="form-grup" style="margin-bottom: 20px;">
+              <label style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--beyaz);">İsim Soyisim</label>
+              <input type="text" id="yorumIsim" required style="width: 100%; padding: 15px; background: transparent; border: 1px solid var(--gri-2); color: var(--beyaz); font-size: 1rem; font-family: inherit; border-radius: 4px; box-sizing: border-box; outline: none;">
+            </div>
+            <div class="form-grup" style="margin-bottom: 25px;">
+              <label style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--beyaz);">Yorumunuz</label>
+              <textarea id="yorumMetin" required rows="5" style="width: 100%; padding: 15px; background: transparent; border: 1px solid var(--gri-2); color: var(--beyaz); font-size: 1rem; font-family: inherit; border-radius: 4px; resize: vertical; box-sizing: border-box; outline: none;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-birincil" style="width: 100%; justify-content: center; padding: 15px; font-size: 1.1rem;">Gönder</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Yorum Listesi -->
+      <div class="yorum-sag">
+        <div id="yorumListesi" style="display: flex; flex-direction: column; gap: 0;">
+          <!-- Yorumlar js ile eklenecek -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="one-cikan" style="padding-top: 20px; margin: 0 auto; padding-bottom: 50px; padding-left: 5%; padding-right: 5%;">
+    <div class="bolum-baslik">
+      <h2>Bunu Alanlar Şunu Da Aldı</h2>
+    </div>
+    <div class="urun-grid" id="ilgiliUrunlerListesi">
+      <!-- Dinamik olarak doldurulacak -->
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-alt" style="justify-content: center;">
+      <span>&copy; 2026 Üstform. Tüm hakları saklıdır.</span>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Dinamik Ürün Yükleme
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id');
+      if (id && typeof urunGetir === 'function') {
+        const urun = urunGetir(id);
+        if (urun) {
+          document.title = `${urun.isim} — ÜSTFORM`;
+          document.getElementById('detayUrunIsim').innerText = urun.isim;
+          document.getElementById('detayUrunFiyat').innerText = urun.fiyat + '₺';
+          document.querySelector('.detay-aciklama').innerText = urun.aciklama;
+
+          const anaGorsel = document.querySelector('.ana-gorsel');
+          if (anaGorsel) {
+            anaGorsel.innerHTML = urun.resim;
+          }
+
+          const detayRenkler = document.getElementById('detayRenkler');
+          if (detayRenkler) {
+            detayRenkler.innerHTML = '';
+            urun.renkler.forEach((r, idx) => {
+              const border = r.border ? 'border: 1px solid #ccc;' : '';
+              const secili = idx === 0 ? 'secili' : '';
+              detayRenkler.innerHTML += `<div class="renk-nokta ${secili}" style="background: ${r.hex}; ${border}" title="${r.isim}"></div>`;
+            });
+          }
+
+          const detayBedenler = document.getElementById('detayBedenler');
+          if (detayBedenler) {
+            detayBedenler.innerHTML = '';
+            urun.bedenler.forEach((b, idx) => {
+              const secili = idx === 1 || urun.bedenler.length === 1 ? 'secili' : '';
+              detayBedenler.innerHTML += `<button class="beden-btn ${secili}">${b}</button>`;
+            });
+          }
+        }
+      }
+
+      // Renk Seçimi
+      document.getElementById('detayRenkler')?.addEventListener('click', function (e) {
+        if (e.target.classList.contains('renk-nokta')) {
+          this.querySelectorAll('.renk-nokta').forEach(n => n.classList.remove('secili'));
+          e.target.classList.add('secili');
+        }
+      });
+
+      // Beden Seçimi
+      document.getElementById('detayBedenler')?.addEventListener('click', function (e) {
+        if (e.target.classList.contains('beden-btn')) {
+          this.querySelectorAll('.beden-btn').forEach(b => b.classList.remove('secili'));
+          e.target.classList.add('secili');
+        }
+      });
+
+      // Sepete Ekle
+      document.querySelector('.urun-detay-sepet-btn').addEventListener('click', function () {
+        if(typeof girisKontrol === 'function' && !girisKontrol('Sepete eklemek için giriş yapmalısınız!')) return;
+        const isim = document.getElementById('detayUrunIsim').innerText;
+        const fiyatText = document.getElementById('detayUrunFiyat').innerText;
+        const fiyat = parseInt(fiyatText.replace('₺', '').trim());
+
+        const seciliRenk = document.querySelector('#detayRenkler .renk-nokta.secili');
+        const renk = seciliRenk ? seciliRenk.title : 'Standart';
+
+        const seciliBedenBtn = document.querySelector('#detayBedenler .beden-btn.secili');
+        const beden = seciliBedenBtn ? seciliBedenBtn.innerText : 'M';
+        
+        const imgEl = document.querySelector('.ana-gorsel img');
+        const gorsel = imgEl ? imgEl.src : '';
+
+        // Sepete ekle (main.js deki fonksiyonu kullan veya kendin yaz)
+        const sepet = JSON.parse(localStorage.getItem('ustform_sepet')) || [];
+        const varOlanUrun = sepet.find(u => u.isim === isim && u.renk === renk && u.beden === beden);
+
+        if (varOlanUrun) {
+          varOlanUrun.adet += 1;
+        } else {
+          sepet.push({ isim, fiyat, renk, beden, adet: 1, gorsel });
+        }
+
+        localStorage.setItem('ustform_sepet', JSON.stringify(sepet));
+
+        // Sepet UI güncelle (main.js'den)
+        if (typeof updateSepetUI === 'function') updateSepetUI();
+
+        // Toast göster (main.js'den)
+        if (typeof showToast === 'function') {
+          showToast(`${isim} (${beden}) sepete eklendi!`);
+        }
+        if (typeof openOffcanvasSepet === 'function') openOffcanvasSepet();
+      });
+
+      // İlgili Ürünleri Render Et
+      if (typeof urunleriGetir === 'function') {
+        const tumUrunler = urunleriGetir();
+        const rastgele = [...tumUrunler].sort(() => 0.5 - Math.random()).slice(0, 4);
+        if (window.renderUrunler) {
+          window.renderUrunler('ilgiliUrunlerListesi', rastgele);
+        }
+      }
+
+      // ── YORUM SİSTEMİ MANTIĞI ──
+      const currentUrunId = urlParams.get('id') || 'genel';
+      
+      const yorumListesi = document.getElementById('yorumListesi');
+      const genelOrtalama = document.getElementById('genelOrtalama');
+      const genelYildizlar = document.getElementById('genelYildizlar');
+      const toplamDegerlendirmeYazi = document.getElementById('toplamDegerlendirmeYazi');
+      const ustYildizlarIkonlar = document.getElementById('ustYildizlarIkonlar');
+      const ustYildizSayisi = document.getElementById('ustYildizSayisi');
+      const yildizSecici = document.getElementById('yildizSecici');
+      const yorumPuanInput = document.getElementById('yorumPuan');
+      const yorumForm = document.getElementById('yorumForm');
+
+      // Yıldız seçimi (form için)
+      if(yildizSecici) {
+        const yildizlar = yildizSecici.querySelectorAll('i');
+        yildizlar.forEach(y => {
+          y.addEventListener('click', function() {
+            const deger = parseInt(this.getAttribute('data-deger'));
+            yorumPuanInput.value = deger;
+            yildizlar.forEach(y2 => {
+              if(parseInt(y2.getAttribute('data-deger')) <= deger) {
+                y2.classList.remove('fa-regular');
+                y2.classList.add('fa-solid');
+              } else {
+                y2.classList.remove('fa-solid');
+                y2.classList.add('fa-regular');
+              }
+            });
+          });
+        });
+      }
+
+      function yildizHTMLOlustur(puan) {
+        let html = '';
+        for(let i=1; i<=5; i++) {
+          if(puan >= i) html += '<i class="fa-solid fa-star"></i>';
+          else if(puan >= i - 0.5) html += '<i class="fa-solid fa-star-half-stroke"></i>';
+          else html += '<i class="fa-regular fa-star"></i>';
+        }
+        return html;
+      }
+
+      function yorumlariYukle() {
+        const tumYorumlar = JSON.parse(localStorage.getItem('ustform_yorumlar')) || [];
+        const urunYorumlari = tumYorumlar.filter(y => y.urunId === currentUrunId).reverse();
+        
+        if(urunYorumlari.length === 0) {
+          if(yorumListesi) yorumListesi.innerHTML = '<p style="color: var(--gri-3);">Bu ürün için henüz yorum yapılmamış. İlk yorumu siz yapın!</p>';
+          if(genelOrtalama) genelOrtalama.innerText = '0.0';
+          if(genelYildizlar) genelYildizlar.innerHTML = yildizHTMLOlustur(0);
+          if(toplamDegerlendirmeYazi) toplamDegerlendirmeYazi.innerText = '0 Değerlendirme';
+          if(ustYildizlarIkonlar) ustYildizlarIkonlar.innerHTML = yildizHTMLOlustur(0);
+          if(ustYildizSayisi) ustYildizSayisi.innerText = '(0 Değerlendirme)';
+          return;
+        }
+
+        const toplamPuan = urunYorumlari.reduce((acc, curr) => acc + curr.puan, 0);
+        const ortalama = (toplamPuan / urunYorumlari.length).toFixed(1);
+
+        if(genelOrtalama) genelOrtalama.innerText = ortalama;
+        if(genelYildizlar) genelYildizlar.innerHTML = yildizHTMLOlustur(parseFloat(ortalama));
+        if(toplamDegerlendirmeYazi) toplamDegerlendirmeYazi.innerText = `${urunYorumlari.length} Değerlendirme`;
+        if(ustYildizlarIkonlar) ustYildizlarIkonlar.innerHTML = yildizHTMLOlustur(parseFloat(ortalama));
+        if(ustYildizSayisi) ustYildizSayisi.innerText = `(${urunYorumlari.length} Değerlendirme)`;
+
+        if(yorumListesi) {
+          yorumListesi.innerHTML = '';
+          urunYorumlari.forEach(y => {
+            yorumListesi.innerHTML += `
+              <div style="background: transparent; border-bottom: 1px solid var(--gri-1); padding: 30px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                  <strong style="color: var(--beyaz); font-size: 1.1rem;">${y.isim}</strong>
+                  <span style="color: var(--gri-3); font-size: 0.9rem;">${y.tarih}</span>
+                </div>
+                <div style="color: var(--vurgu); margin-bottom: 15px; font-size: 1rem;">
+                  ${yildizHTMLOlustur(y.puan)}
+                </div>
+                <p style="color: var(--gri-3); line-height: 1.6; font-size: 1rem; word-break: break-word;">${y.metin}</p>
+              </div>
+            `;
+          });
+        }
+      }
+
+      if(yorumForm) {
+        yorumForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          if(typeof girisKontrol === 'function' && !girisKontrol('Yorum yapmak için giriş yapmalısınız!')) return;
+          const isim = document.getElementById('yorumIsim').value;
+          const metin = document.getElementById('yorumMetin').value;
+          const puan = parseInt(document.getElementById('yorumPuan').value);
+          const tarih = new Date().toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+
+          const yeniYorum = { urunId: currentUrunId, isim, metin, puan, tarih };
+          const tumYorumlar = JSON.parse(localStorage.getItem('ustform_yorumlar')) || [];
+          tumYorumlar.push(yeniYorum);
+          localStorage.setItem('ustform_yorumlar', JSON.stringify(tumYorumlar));
+
+          document.getElementById('yorumIsim').value = '';
+          document.getElementById('yorumMetin').value = '';
+          if(typeof showToast === 'function') showToast('Yorumunuz eklendi!');
+          
+          yorumlariYukle();
+        });
+      }
+
+      yorumlariYukle();
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const akordeonBasliklar = document.querySelectorAll('.akordeon-baslik');
+
+      akordeonBasliklar.forEach(baslik => {
+        baslik.addEventListener('click', () => {
+          const item = baslik.parentElement;
+          const icerik = item.querySelector('.akordeon-icerik');
+
+          item.classList.toggle('aktif');
+
+          if (item.classList.contains('aktif')) {
+            icerik.style.maxHeight = icerik.scrollHeight + 'px';
+          } else {
+            icerik.style.maxHeight = '0';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

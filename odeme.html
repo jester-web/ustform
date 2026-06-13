@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Güvenli Ödeme — ÜSTFORM</title>
+  <meta name="description" content="Siparişinizi tamamlayın." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .odeme-kutu {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .odeme-kutu h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 15px;
+      color: var(--beyaz);
+    }
+
+    .odeme-kutu .form-grup input,
+    .odeme-kutu .form-grup textarea {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: var(--beyaz);
+    }
+    .odeme-kutu .form-grup input:focus,
+    .odeme-kutu .form-grup textarea:focus {
+      border-color: var(--vurgu);
+      box-shadow: 0 0 0 3px rgba(245, 85, 7, 0.1);
+    }
+  </style>
+  <link rel="icon" type="image/png" href="images/ustform.png">
+</head>
+
+<body>
+
+  <!-- ── NAVİGASYON ── -->
+  <nav class="nav mega-nav">
+        <ul class="nav-links nav-left" id="navLinksLeft">
+      <li class="mega-hover" data-mega="erkek"><a href="urunler.html?kategori=erkek">ERKEK</a></li>
+      <li class="mega-hover" data-mega="kadin"><a href="urunler.html?kategori=kadin">KADIN</a></li>
+      <li><a href="hakkinda.html">HAKKINDA</a></li>
+      <li><a href="iletisim.html">İLETİŞİM</a></li>
+    </ul>
+
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Logo" class="nav-logo-img">
+    </a>
+
+    <ul class="nav-links nav-right" id="navLinksRight">
+      <li class="nav-ikonlar">
+        <a href="#" id="aramaToggle"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="giris.html" id="hesabimLinkKaan">Kaan</a>
+        <a href="#" class="nav-sepet" id="offcanvasSepetBtn"><i class="fa-solid fa-box"></i> <span id="sepetSayac"
+            style="font-size:0.75rem;">0</span></a>
+      </li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menüyü aç/kapa">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mega Menu -->
+  <div class="mega-menu" id="megaMenu">
+    <div class="mega-menu-ic" id="megaMenuIcerik"></div>
+  </div>
+
+  <!-- ── İÇERİK ── -->
+  <div class="sepet-bolum">
+    <form id="odemeForm">
+      <div class="sepet-grid">
+
+        <div class="odeme-sol">
+          <div class="odeme-kutu">
+            <h3>İletişim & Adres Bilgileri</h3>
+            
+            <h4 style="font-size: 1rem; color: var(--gri-3); margin-bottom: 15px;"><i class="fa-regular fa-user"></i> 1. İletişim Bilgileri</h4>
+            <div class="form-2kolon">
+              <div class="form-grup">
+                <label>Ad</label>
+                <input type="text" required placeholder="Adınız" id="odemeAd">
+              </div>
+              <div class="form-grup">
+                <label>Soyad</label>
+                <input type="text" required placeholder="Soyadınız" id="odemeSoyad">
+              </div>
+            </div>
+            <div class="form-grup">
+              <label>Cep Telefonu</label>
+              <div style="display:flex; gap:10px;">
+                <input type="text" value="+90" disabled style="width: 70px; text-align:center; background:#f8fafc; color:var(--gri-3); cursor:not-allowed;">
+                <input type="tel" id="odemeTelefon" required placeholder="5XX XXX XX XX" style="flex:1;">
+              </div>
+              <small style="color:var(--gri-3); font-size:0.75rem; margin-top:5px; display:block;">Siparişinizle ilgili bilgilendirmeler bu numaraya yapılacaktır.</small>
+            </div>
+
+            <hr style="border:0; border-top:1px dashed #e2e8f0; margin: 25px 0;">
+
+            <h4 style="font-size: 1rem; color: var(--gri-3); margin-bottom: 15px;"><i class="fa-solid fa-location-dot"></i> 2. Teslimat Adresi</h4>
+            <div class="form-2kolon">
+              <div class="form-grup">
+                <label>İl</label>
+                <select id="odemeSehir" required style="width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:4px; outline:none; font-family:inherit; background:#fff; color:var(--beyaz);">
+                  <option value="" disabled selected>İl Seçiniz</option>
+                  <option value="İstanbul">İstanbul</option>
+                  <option value="Ankara">Ankara</option>
+                  <option value="İzmir">İzmir</option>
+                  <option value="Bursa">Bursa</option>
+                  <option value="Antalya">Antalya</option>
+                  <!-- Diğer iller eklenebilir -->
+                </select>
+              </div>
+              <div class="form-grup">
+                <label>İlçe</label>
+                <select id="odemeIlce" required style="width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:4px; outline:none; font-family:inherit; background:#fff; color:var(--beyaz);" disabled>
+                  <option value="" disabled selected>Önce İl Seçiniz</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-grup">
+              <label>Açık Adres</label>
+              <textarea id="odemeAdres" required placeholder="Mahalle, sokak, cadde, bina no ve diğer adres detaylarını eksiksiz giriniz..." style="min-height: 90px; resize:vertical;"></textarea>
+            </div>
+          </div>
+
+          <div class="odeme-kutu">
+            <h3>Kart Bilgileri</h3>
+            <div class="form-grup">
+              <label>Kart Üzerindeki İsim</label>
+              <input type="text" id="odemeKartIsim" name="ccname" autocomplete="cc-name" required placeholder="İsim Soyisim">
+            </div>
+            <div class="form-grup">
+              <label>Kart Numarası</label>
+              <input type="text" id="odemeKartNo" name="cardnumber" autocomplete="cc-number" required placeholder="XXXX XXXX XXXX XXXX" maxlength="19">
+            </div>
+            <div class="form-2kolon">
+              <div class="form-grup">
+                <label>Son Kullanma (AA/YY)</label>
+                <input type="text" id="odemeSonKullanma" name="cc-exp" autocomplete="cc-exp" required placeholder="12/25" maxlength="5">
+              </div>
+              <div class="form-grup">
+                <label>CVV</label>
+                <input type="text" id="odemeCvv" name="cvc" autocomplete="cc-csc" required placeholder="123" maxlength="3">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="siparis-ozeti">
+          <h3>Ödenecek Tutar</h3>
+          <div class="ozet-satir">
+            <span>Ara Toplam</span>
+            <span id="odemeAraToplam">0₺</span>
+          </div>
+          <div class="ozet-satir">
+            <span>Kargo Tutarı</span>
+            <span id="odemeKargo">0₺</span>
+          </div>
+          <div class="ozet-satir toplam">
+            <span>Toplam</span>
+            <span id="odemeToplam">0₺</span>
+          </div>
+
+          <div class="guvenlik-rozetleri" style="margin-top:20px; border-top:1px dashed #e2e8f0; padding-top:15px;">
+            <div style="display:flex; align-items:center; gap:10px; color:var(--gri-3); font-size:0.85rem;">
+              <i class="fa-solid fa-lock" style="font-size:1.2rem; color:#16a34a;"></i>
+              <span>256-bit SSL sertifikası ile ödemeniz güvendedir.</span>
+            </div>
+          </div>
+          
+          <div style="margin-top: 15px; font-size: 0.85rem; color: var(--gri-3); display: flex; gap: 10px; align-items: flex-start;">
+            <input type="checkbox" id="sozlesmeOnay" required style="margin-top:3px; accent-color: var(--vurgu);">
+            <label for="sozlesmeOnay">Ön Bilgilendirme Koşullarını ve <a href="#" style="color:var(--vurgu); text-decoration:underline;">Mesafeli Satış Sözleşmesini</a> okudum, onaylıyorum.</label>
+          </div>
+          
+          <button type="submit" class="btn-onayla" style="margin-top: 20px;">Siparişi Tamamla <i class="fa-solid fa-check" style="margin-left:5px;"></i></button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-alt" style="justify-content: center;">
+      <span>&copy; 2026 Üstform. Tüm hakları saklıdır.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Aktif kullanıcı varsa isim doldur, yoksa giriş sayfasına yönlendir
+      const aktifKullanici = JSON.parse(localStorage.getItem('aktifKullanici'));
+      if (!aktifKullanici) {
+        if (window.showToast) window.showToast('Ödeme yapmak için giriş yapmalısınız!');
+        setTimeout(() => { window.location.href = 'giris.html'; }, 1200);
+        return;
+      }
+      if (document.getElementById('odemeAd')) {
+        document.getElementById('odemeAd').value = aktifKullanici.ad;
+      }
+
+      // Toplamı hesapla
+      const sepet = JSON.parse(localStorage.getItem('ustform_sepet')) || [];
+      if (sepet.length === 0) {
+        alert("Sepetiniz boş! Alışverişe yönlendiriliyorsunuz.");
+        window.location.href = "urunler.html";
+      }
+
+      let toplam = 0;
+      sepet.forEach(urun => {
+        toplam += urun.fiyat * urun.adet;
+      });
+      let kargo = toplam > 500 ? 0 : 50;
+      
+      if(document.getElementById('odemeAraToplam')) {
+          document.getElementById('odemeAraToplam').innerText = `${toplam}₺`;
+      }
+      if(document.getElementById('odemeKargo')) {
+          document.getElementById('odemeKargo').innerText = kargo === 0 ? 'Ücretsiz' : `${kargo}₺`;
+      }
+      
+      let indirimTutari = 0;
+      const uygulananPromosyon = JSON.parse(localStorage.getItem('uygulananPromosyon'));
+      
+      if (uygulananPromosyon) {
+        if (uygulananPromosyon.tip === 'yuzde') indirimTutari = Math.floor(toplam * (uygulananPromosyon.miktar / 100));
+        else indirimTutari = uygulananPromosyon.miktar;
+        if (indirimTutari > toplam) indirimTutari = toplam;
+        
+        // Ekrana indirim satırı ekle
+        const siparisOzeti = document.querySelector('.siparis-ozeti');
+        const indirimDiv = document.createElement('div');
+        indirimDiv.className = 'ozet-satir';
+        indirimDiv.innerHTML = `<span>İndirim (${uygulananPromosyon.kod})</span> <span style="color:var(--vurgu);">-${indirimTutari}₺</span>`;
+        siparisOzeti.insertBefore(indirimDiv, siparisOzeti.querySelector('.toplam'));
+      }
+      
+      const nihaiToplam = Math.max(0, toplam + kargo - indirimTutari);
+      document.getElementById('odemeToplam').innerText = `${nihaiToplam}₺`;
+
+      // ── İL VE İLÇE GETİRME (SABİT VERİ) ──
+      const sehirSelect = document.getElementById('odemeSehir');
+      const ilceSelect = document.getElementById('odemeIlce');
+      
+      const illerData = [
+        { il_adi: "İstanbul", ilceler: [{ilce_adi: "Kadıköy"}, {ilce_adi: "Beşiktaş"}, {ilce_adi: "Üsküdar"}, {ilce_adi: "Şişli"}, {ilce_adi: "Bakırköy"}] },
+        { il_adi: "Ankara", ilceler: [{ilce_adi: "Çankaya"}, {ilce_adi: "Keçiören"}, {ilce_adi: "Yenimahalle"}, {ilce_adi: "Mamak"}, {ilce_adi: "Etimesgut"}] },
+        { il_adi: "İzmir", ilceler: [{ilce_adi: "Karşıyaka"}, {ilce_adi: "Konak"}, {ilce_adi: "Bornova"}, {ilce_adi: "Buca"}, {ilce_adi: "Çiğli"}] },
+        { il_adi: "Bursa", ilceler: [{ilce_adi: "Nilüfer"}, {ilce_adi: "Osmangazi"}, {ilce_adi: "Yıldırım"}, {ilce_adi: "Mudanya"}] },
+        { il_adi: "Antalya", ilceler: [{ilce_adi: "Muratpaşa"}, {ilce_adi: "Konyaaltı"}, {ilce_adi: "Kepez"}, {ilce_adi: "Alanya"}] }
+      ];
+
+      sehirSelect.innerHTML = '<option value="" disabled selected>İl Seçiniz</option>';
+      illerData.forEach(il => {
+        const option = document.createElement('option');
+        option.value = il.il_adi;
+        option.textContent = il.il_adi;
+        sehirSelect.appendChild(option);
+      });
+
+      sehirSelect.addEventListener('change', (e) => {
+        const secilenIl = e.target.value;
+        const ilData = illerData.find(il => il.il_adi === secilenIl);
+        ilceSelect.innerHTML = '<option value="" disabled selected>İlçe Seçiniz</option>';
+        if(ilData && ilData.ilceler) {
+          ilceSelect.disabled = false;
+          ilData.ilceler.forEach(ilce => {
+            const option = document.createElement('option');
+            option.value = ilce.ilce_adi;
+            option.textContent = ilce.ilce_adi;
+            ilceSelect.appendChild(option);
+          });
+        } else {
+          ilceSelect.disabled = true;
+        }
+      });
+
+      // ── FORM VALIDATION & FORMATTING ──
+      const telefonInput = document.getElementById('odemeTelefon');
+      if(telefonInput) {
+        telefonInput.addEventListener('input', function(e) {
+          let val = this.value.replace(/\D/g, ''); // Sadece rakam
+          if(val.length > 0 && val[0] !== '5') {
+            val = '5' + val.substring(1); // 5 ile başlamaya zorla
+          }
+          if(val.length > 10) {
+            val = val.substring(0, 10); // Maksimum 10 haneye sınırla
+          }
+          this.value = val;
+        });
+      }
+
+      const kartNoInput = document.getElementById('odemeKartNo');
+      if(kartNoInput) {
+        kartNoInput.addEventListener('input', function(e) {
+          let val = this.value.replace(/\D/g, '');
+          let formatted = val.match(/.{1,4}/g);
+          this.value = formatted ? formatted.join(' ') : val;
+        });
+      }
+
+      const sktInput = document.getElementById('odemeSonKullanma');
+      if(sktInput) {
+        sktInput.addEventListener('input', function(e) {
+          let val = this.value.replace(/\D/g, '');
+          if (val.length > 2) {
+            val = val.substring(0,2) + '/' + val.substring(2,4);
+          }
+          this.value = val;
+        });
+      }
+
+      const cvvInput = document.getElementById('odemeCvv');
+      if(cvvInput) {
+        cvvInput.addEventListener('input', function(e) {
+          this.value = this.value.replace(/\D/g, '').substring(0,3);
+        });
+      }
+
+      // Form Submit
+      document.getElementById('odemeForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Basit doğrulamalar
+        if(kartNoInput.value.replace(/\s/g, '').length !== 16) {
+          alert('Lütfen 16 haneli geçerli bir kart numarası giriniz.');
+          return;
+        }
+        if(sktInput.value.length !== 5) {
+          alert('Lütfen geçerli bir Son Kullanma Tarihi (AA/YY) giriniz.');
+          return;
+        }
+        if(cvvInput.value.length !== 3) {
+          alert('Lütfen 3 haneli CVV kodunu giriniz.');
+          return;
+        }
+
+        if(!document.getElementById('sozlesmeOnay').checked) {
+          alert('Lütfen Mesafeli Satış Sözleşmesini onaylayınız.');
+          return;
+        }
+
+        const btn = this.querySelector('button[type="submit"]');
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> İşleniyor...';
+        btn.disabled = true;
+
+        setTimeout(() => {
+          // Siparişi profil sayfasına aktarma
+          const siparisler = JSON.parse(localStorage.getItem('siparisler')) || [];
+          const aktifKullanici = JSON.parse(localStorage.getItem('aktifKullanici')) || { email: 'misafir@misafir.com' };
+
+          siparisler.push({
+            id: Math.floor(Math.random() * 100000),
+            kullaniciEmail: aktifKullanici.email,
+            kullaniciAd: document.getElementById('odemeAd').value || 'Misafir',
+            telefon: document.getElementById('odemeTelefon').value,
+            adres: document.getElementById('odemeAdres').value,
+            sehir: document.getElementById('odemeSehir').value,
+            sepet: sepet,
+            toplamOdeme: nihaiToplam,
+            kullanilanPromosyon: uygulananPromosyon ? { kod: uygulananPromosyon.kod, indirimTutari } : null,
+            durum: 'Sipariş Alındı',
+            tarih: new Date().toISOString()
+          });
+          localStorage.setItem('siparisler', JSON.stringify(siparisler));
+
+          localStorage.removeItem('ustform_sepet'); // Sepeti temizle
+          localStorage.removeItem('uygulananPromosyon'); // Promosyonu temizle
+          window.location.href = "basarili.html";
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+
+</html>

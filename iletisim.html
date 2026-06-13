@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İletişim — ÜSTFORM</title>
+  <meta name="description" content="Üstform ile iletişime geç. Sipariş, özel tasarım ve iş birliği için bize ulaş." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="images/ustform.png">
+</head>
+
+<body>
+
+  <!-- ── NAVİGASYON ── -->
+  <nav class="nav mega-nav">
+        <ul class="nav-links nav-left" id="navLinksLeft">
+      <li class="mega-hover" data-mega="erkek"><a href="urunler.html?kategori=erkek">ERKEK</a></li>
+      <li class="mega-hover" data-mega="kadin"><a href="urunler.html?kategori=kadin">KADIN</a></li>
+      <li><a href="hakkinda.html">HAKKINDA</a></li>
+      <li><a href="iletisim.html">İLETİŞİM</a></li>
+    </ul>
+
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Logo" class="nav-logo-img">
+    </a>
+
+    <ul class="nav-links nav-right" id="navLinksRight">
+      <li class="nav-ikonlar">
+        <a href="#" id="aramaToggle"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="giris.html" id="hesabimLinkKaan">Kaan</a>
+        <a href="#" class="nav-sepet" id="offcanvasSepetBtn"><i class="fa-solid fa-box"></i> <span id="sepetSayac"
+            style="font-size:0.75rem;">0</span></a>
+      </li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menüyü aç/kapa">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mega Menu -->
+  <div class="mega-menu" id="megaMenu">
+    <div class="mega-menu-ic" id="megaMenuIcerik"></div>
+  </div>
+
+  <!-- ── SAYFA BAŞLIĞI ── -->
+
+
+  <!-- ── İÇERİK ── -->
+  <div class="iletisim-bolum">
+
+    <!-- SOL: Hakkımızda + İletişim Bilgileri -->
+    <div class="iletisim-sol">
+      <h2>Bize Ulaşın</h2>
+      <p>
+        Sorularınız, siparişleriniz veya iş birliği talepleriniz için aşağıdaki iletişim kanallarından veya iletişim
+        formundan bize ulaşabilirsiniz. En kısa sürede geri dönüş yapacağız.
+      </p>
+
+      <div class="iletisim-satir">
+        <i class="fa-solid fa-envelope"></i>
+        <div>
+          <strong>E-posta</strong>
+          merhaba@ustform.com.tr
+        </div>
+      </div>
+      <div class="iletisim-satir">
+        <i class="fa-solid fa-phone"></i>
+        <div>
+          <strong>Telefon</strong>
+          +90 (536) 000 00 00
+        </div>
+      </div>
+      <div class="iletisim-satir">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>
+          <strong>Adres</strong>
+          Kırşehir, Türkiye (Online Satış)
+        </div>
+      </div>
+      <div class="iletisim-satir">
+        <i class="fa-solid fa-clock"></i>
+        <div>
+          <strong>Çalışma Saatleri</strong>
+          Hft. içi 09:00 – 18:00
+        </div>
+      </div>
+
+      <br />
+      <div class="sosyal-linkler">
+        <a href="#" class="sosyal-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="sosyal-link" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#" class="sosyal-link" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="sosyal-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- SAĞ: İletişim Formu (Zorunlu HTML formu) -->
+    <div class="iletisim-sag">
+      <form id="iletisimForm">
+
+        <div class="form-2kolon">
+          <div class="form-grup">
+            <label for="ad">Adınız *</label>
+            <input type="text" id="ad" name="ad" placeholder="Adınızı girin" required />
+          </div>
+          <div class="form-grup">
+            <label for="soyad">Soyadınız *</label>
+            <input type="text" id="soyad" name="soyad" placeholder="Soyadınızı girin" required />
+          </div>
+        </div>
+
+        <div class="form-grup">
+          <label for="email">E-posta Adresi *</label>
+          <input type="email" id="email" name="email" placeholder="ornek@eposta.com" required />
+        </div>
+
+        <div class="form-grup">
+          <label for="telefon">Telefon (İsteğe bağlı)</label>
+          <input type="tel" id="telefon" name="telefon" placeholder="+90 5XX XXX XX XX" />
+        </div>
+
+        <div class="form-grup">
+          <label for="konu">Konu *</label>
+          <select id="konu" name="konu" required>
+            <option value="" disabled selected>Bir konu seçin...</option>
+            <option value="siparis">Sipariş & Teslimat</option>
+            <option value="iade">İade & Değişim</option>
+            <option value="ozel">Özel Tasarım Talebi</option>
+            <option value="is-birligi">İş Birliği & Mağaza</option>
+            <option value="diger">Diğer</option>
+          </select>
+        </div>
+
+        <div class="form-grup">
+          <label for="mesaj">Mesajınız *</label>
+          <textarea id="mesaj" name="mesaj" placeholder="Mesajınızı buraya yazın..." required></textarea>
+        </div>
+
+        <div class="form-grup">
+          <label
+            style="display:flex;align-items:flex-start;gap:10px;text-transform:none;font-size:0.82rem;cursor:pointer;">
+            <input type="checkbox" id="kvkk" name="kvkk" required style="width:auto;margin-top:2px;" />
+            <span style="color:var(--gri-3);">
+              Kişisel verilerimin işlenmesine ilişkin
+              <a href="hakkinda.html" style="color:var(--vurgu);">KVKK Aydınlatma Metni</a>'ni okudum ve kabul ediyorum.
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-birincil" style="width:100%;justify-content:center;">
+          <i class="fa-solid fa-paper-plane"></i> Mesaj Gönder
+        </button>
+
+        <div class="form-mesaj" id="formMesaj">
+          <i class="fa-solid fa-circle-check"></i>&nbsp;
+          Mesajınız başarıyla iletildi! En kısa sürede geri dönüş yapacağız.
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-ic">
+      <div>
+        <div class="footer-logo">ÜST<span>FORM</span></div>
+        <p class="footer-aciklama">Sıradan giysilere değil, ifadeye inananlar için sınırlı üretim premium tişört
+          markası.</p>
+        <div class="sosyal-linkler">
+          <a href="#" class="sosyal-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="sosyal-link" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" class="sosyal-link" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-baslik">Mağaza</div>
+        <ul class="footer-listesi">
+          <li><a href="urunler.html">Yeni Gelenler</a></li>
+          <li><a href="urunler.html">İndirimli</a></li>
+          <li><a href="urunler.html">Sınırlı Sürüm</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-baslik">Bilgi</div>
+        <ul class="footer-listesi">
+          <li><a href="iletisim.html">Hakkımızda</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="iletisim.html">Kargo & İade</a></li>
+          <li><a href="hakkinda.html">Gizlilik Politikası</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-baslik">Yardım</div>
+        <ul class="footer-listesi">
+          <li><a href="urun-detay.html">Beden Rehberi</a></li>
+          <li><a href="urun-detay.html">Yıkama Talimatları</a></li>
+          <li><a href="profil.html">Sipariş Takibi</a></li>
+          <li><a href="iletisim.html">SSS</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-alt">
+      <span>&copy; 2026 Üstform. Tüm hakları saklıdır.</span>
+      <span>Ücretsiz lisanslı görseller: Unsplash · Pexels</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const iletisimForm = document.getElementById('iletisimForm');
+      const formMesaj = document.getElementById('formMesaj');
+      
+      if (iletisimForm) {
+        iletisimForm.addEventListener('submit', (e) => {
+          e.preventDefault(); // Sayfanın yenilenmesini engelle
+          
+          // Gönderim efekti ve toast bildirimi
+          if(window.showToast) {
+            showToast('Mesajınız başarıyla iletildi!');
+          }
+          
+          // Form alanlarını temizle
+          iletisimForm.reset();
+          
+          // Başarı mesajını form altında da göster
+          if (formMesaj) {
+            formMesaj.style.display = 'block';
+            setTimeout(() => {
+              formMesaj.style.display = 'none';
+            }, 5000);
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+
+</html>

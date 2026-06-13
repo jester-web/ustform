@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sepetim — ÜSTFORM</title>
+  <meta name="description" content="Alışveriş sepetiniz." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="images/ustform.png">
+</head>
+
+<body>
+
+  <!-- ── NAVİGASYON ── -->
+  <nav class="nav mega-nav">
+        <ul class="nav-links nav-left" id="navLinksLeft">
+      <li class="mega-hover" data-mega="erkek"><a href="urunler.html?kategori=erkek">ERKEK</a></li>
+      <li class="mega-hover" data-mega="kadin"><a href="urunler.html?kategori=kadin">KADIN</a></li>
+      <li><a href="hakkinda.html">HAKKINDA</a></li>
+      <li><a href="iletisim.html">İLETİŞİM</a></li>
+    </ul>
+
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Logo" class="nav-logo-img">
+    </a>
+
+    <ul class="nav-links nav-right" id="navLinksRight">
+      <li class="nav-ikonlar">
+        <a href="#" id="aramaToggle"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="giris.html" id="hesabimLinkKaan">Kaan</a>
+        <a href="#" class="nav-sepet" id="offcanvasSepetBtn"><i class="fa-solid fa-box"></i> <span id="sepetSayac"
+            style="font-size:0.75rem;">0</span></a>
+      </li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menüyü aç/kapa">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mega Menu -->
+  <div class="mega-menu" id="megaMenu">
+    <div class="mega-menu-ic" id="megaMenuIcerik"></div>
+  </div>
+
+
+
+  <!-- ── SEPET İÇERİĞİ ── -->
+  <div class="sepet-bolum">
+    <div class="sepet-grid" id="sepetGrid">
+      <div class="sepet-urunler" id="sepetUrunlerContainer">
+        <!-- Ürünler JS ile buraya gelecek -->
+      </div>
+
+      <div class="siparis-ozeti">
+        <h3>Sipariş Özeti</h3>
+        <div class="ozet-satir">
+          <span>Ara Toplam</span>
+          <span id="araToplam">0₺</span>
+        </div>
+        <div class="ozet-satir">
+          <span>Kargo Tutarı</span>
+          <span id="kargoUcret">0₺</span>
+        </div>
+        <div class="ozet-satir toplam">
+          <span>Toplam</span>
+          <span id="genelToplam">0₺</span>
+        </div>
+
+        <div class="indirim-kod-alan">
+          <input type="text" id="promoKodu" placeholder="Promosyon Kodu" style="width:100%; padding:10px; border:1px solid #e2e8f0; border-radius:4px; margin-bottom:10px; text-transform:uppercase;">
+          <button id="btnPromoUygula" class="indirim-btn"><i class="fa-solid fa-plus"></i> İndirim Kodu Gir</button>
+        </div>
+        <p id="promoMesaj" style="font-size:0.85rem; margin-top:10px;"></p>
+
+        <a href="odeme.html" class="btn-onayla">Sepeti Onayla <i class="fa-solid fa-chevron-right" style="font-size:0.8rem; margin-left:5px;"></i></a>
+
+        <div class="guvenlik-rozetleri" style="margin-top:20px; border-top:1px dashed #e2e8f0; padding-top:15px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px; color:var(--gri-3); font-size:0.85rem;">
+            <i class="fa-solid fa-shield-halved" style="font-size:1.2rem; color:#16a34a;"></i>
+            <span>256-bit SSL Güvenli Ödeme</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; color:var(--gri-3); font-size:0.85rem;">
+            <i class="fa-solid fa-rotate-left" style="font-size:1.2rem; color:var(--vurgu);"></i>
+            <span>30 Gün Koşulsuz İade</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-alt" style="justify-content: center;">
+      <span>&copy; 2026 Üstform. Tüm hakları saklıdır.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sepet = JSON.parse(localStorage.getItem('ustform_sepet')) || [];
+      const container = document.getElementById('sepetUrunlerContainer');
+      const araToplamEl = document.getElementById('araToplam');
+      const kargoUcretEl = document.getElementById('kargoUcret');
+      const genelToplamEl = document.getElementById('genelToplam');
+      const sepetGrid = document.getElementById('sepetGrid');
+
+      function sepetiGoster() {
+        if (sepet.length === 0) {
+          sepetGrid.innerHTML = `
+            <div class="bos-sepet" style="grid-column: 1 / -1;">
+              <i class="fa-solid fa-cart-arrow-down"></i>
+              <h2>Sepetiniz şu an boş.</h2>
+              <p style="margin: 15px 0;">Yeni koleksiyonumuzu keşfederek sepetinizi doldurabilirsiniz.</p>
+              <a href="urunler.html" class="btn btn-birincil">Alışverişe Başla</a>
+            </div>
+          `;
+          return;
+        }
+
+        let html = '<div class="sepet-kargo-bedava"><i class="fa-solid fa-box"></i> Kargo Bedava!</div>';
+        let toplam = 0;
+
+        sepet.forEach((urun, index) => {
+          const urunToplam = urun.fiyat * urun.adet;
+          toplam += urunToplam;
+          
+          let resimYeri = urun.gorsel 
+              ? `<img src="${urun.gorsel}" alt="${urun.isim}" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">` 
+              : (urun.resim ? urun.resim : '<i class="fa-solid fa-shirt" style="font-size:2rem;color:var(--gri-3);"></i>');
+
+          html += `
+            <div class="sepet-item">
+              <div class="sepet-item-gorsel">
+                ${resimYeri}
+              </div>
+              <div class="sepet-item-info">
+                <div class="sepet-item-ust">
+                  <div>
+                    <h4>${urun.isim}</h4>
+                    <p>Beden: ${urun.beden || 'Standart'} | Renk: ${urun.renk}</p>
+                  </div>
+                  <button class="sil-btn" data-index="${index}"><i class="fa-regular fa-trash-can"></i> Sil</button>
+                </div>
+                
+                <div class="sepet-item-rozeller">
+                  <span class="rozet">Hızlı Teslimat</span>
+                </div>
+                
+                <div class="sepet-item-alt">
+                  <div class="sepet-miktar">
+                    <button class="miktar-btn eksi" data-index="${index}"><i class="fa-solid fa-minus"></i></button>
+                    <span>${urun.adet}</span>
+                    <button class="miktar-btn arti" data-index="${index}"><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                  <div class="sepet-fiyat-alan">
+                    <span class="fiyat-yeni">${urunToplam}₺</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        container.innerHTML = html;
+
+        let kargo = toplam > 500 ? 0 : 50; // 500TL üzeri kargo bedava
+
+        // Promosyon Kontrolü
+        let indirimTutari = 0;
+        const uygulananPromosyon = JSON.parse(localStorage.getItem('uygulananPromosyon'));
+        
+        if (uygulananPromosyon) {
+          if (uygulananPromosyon.tip === 'yuzde') {
+            indirimTutari = Math.floor(toplam * (uygulananPromosyon.miktar / 100));
+          } else {
+            indirimTutari = uygulananPromosyon.miktar;
+          }
+          if (indirimTutari > toplam) indirimTutari = toplam; // İndirim toplamı geçemez
+        }
+
+        araToplamEl.innerText = `${toplam}₺`;
+        kargoUcretEl.innerText = kargo === 0 ? 'Ücretsiz' : `${kargo}₺`;
+        
+        // İndirim Satırı
+        let indirimSatiri = document.getElementById('indirimSatiri');
+        if (indirimTutari > 0) {
+          if (!indirimSatiri) {
+            const div = document.createElement('div');
+            div.className = 'ozet-satir';
+            div.id = 'indirimSatiri';
+            genelToplamEl.parentElement.before(div);
+            indirimSatiri = div;
+          }
+          indirimSatiri.innerHTML = `<span>İndirim (${uygulananPromosyon.kod}) <a href="#" id="promoIptal" style="color:#f44336;font-size:0.8rem;margin-left:5px;">İptal</a></span> <span style="color:var(--vurgu);">-${indirimTutari}₺</span>`;
+          document.getElementById('promoIptal').onclick = (e) => {
+            e.preventDefault();
+            localStorage.removeItem('uygulananPromosyon');
+            window.location.reload();
+          };
+        } else if (indirimSatiri) {
+          indirimSatiri.remove();
+        }
+
+        genelToplamEl.innerText = `${Math.max(0, toplam + kargo - indirimTutari)}₺`;
+
+        // Promo Butonu Event'i
+        const btnPromo = document.getElementById('btnPromoUygula');
+        if (btnPromo && !btnPromo.dataset.bound) {
+          btnPromo.dataset.bound = true;
+          btnPromo.addEventListener('click', () => {
+            const kod = document.getElementById('promoKodu').value.toUpperCase().trim();
+            const promoList = JSON.parse(localStorage.getItem('promosyonlar')) || [];
+            const promo = promoList.find(p => p.kod === kod);
+            const mesaj = document.getElementById('promoMesaj');
+            
+            if (!kod) return;
+            if (!promo) {
+              mesaj.style.color = '#f44336';
+              mesaj.innerText = 'Geçersiz veya süresi dolmuş kod.';
+              return;
+            }
+            
+            localStorage.setItem('uygulananPromosyon', JSON.stringify(promo));
+            mesaj.style.color = '#4caf50';
+            mesaj.innerText = 'Promosyon başarıyla uygulandı!';
+            setTimeout(() => window.location.reload(), 1000);
+          });
+        }
+
+        // Buton olayları
+        document.querySelectorAll('.arti').forEach(btn => {
+          btn.addEventListener('click', function () {
+            sepet[this.dataset.index].adet++;
+            localStorage.setItem('ustform_sepet', JSON.stringify(sepet));
+            sepetiGoster();
+            if (typeof updateSepetUI === 'function') updateSepetUI();
+            else window.location.reload();
+          });
+        });
+
+        document.querySelectorAll('.eksi').forEach(btn => {
+          btn.addEventListener('click', function () {
+            if (sepet[this.dataset.index].adet > 1) {
+              sepet[this.dataset.index].adet--;
+              localStorage.setItem('ustform_sepet', JSON.stringify(sepet));
+              sepetiGoster();
+              if (typeof updateSepetUI === 'function') updateSepetUI();
+              else window.location.reload();
+            }
+          });
+        });
+
+        document.querySelectorAll('.sil-btn').forEach(btn => {
+          btn.addEventListener('click', function () {
+            sepet.splice(this.dataset.index, 1);
+            localStorage.setItem('ustform_sepet', JSON.stringify(sepet));
+            sepetiGoster();
+            if (typeof updateSepetUI === 'function') updateSepetUI();
+            else window.location.reload();
+          });
+        });
+      }
+
+      sepetiGoster();
+    });
+  </script>
+</body>
+
+</html>

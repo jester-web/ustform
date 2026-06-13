@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorilerim — ÜSTFORM</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="images/ustform.png">
+</head>
+
+<body>
+
+  <!-- ── NAVİGASYON ── -->
+  <nav class="nav mega-nav">
+        <ul class="nav-links nav-left" id="navLinksLeft">
+      <li class="mega-hover" data-mega="erkek"><a href="urunler.html?kategori=erkek">ERKEK</a></li>
+      <li class="mega-hover" data-mega="kadin"><a href="urunler.html?kategori=kadin">KADIN</a></li>
+      <li><a href="hakkinda.html">HAKKINDA</a></li>
+      <li><a href="iletisim.html">İLETİŞİM</a></li>
+    </ul>
+
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Logo" class="nav-logo-img">
+    </a>
+
+    <ul class="nav-links nav-right" id="navLinksRight">
+      <li class="nav-ikonlar">
+        <a href="#" id="aramaToggle"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="giris.html" id="hesabimLinkKaan">Kaan</a>
+        <a href="#" class="nav-sepet" id="offcanvasSepetBtn"><i class="fa-solid fa-box"></i> <span id="sepetSayac"
+            style="font-size:0.75rem;">0</span></a>
+      </li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menüyü aç/kapa">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mega Menu -->
+  <div class="mega-menu" id="megaMenu">
+    <div class="mega-menu-ic" id="megaMenuIcerik"></div>
+  </div>
+
+  <!-- ── FAVORİLER İÇERİK ── -->
+  <div style="max-width: 1200px; margin: 40px auto; padding: 0 5%; min-height: 60vh;">
+    <h2 style="font-size: 2rem; margin-bottom: 30px; font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; color: #1a1a1a;">Favorilerim</h2>
+    
+    <div class="urun-grid" id="favoriUrunListesi">
+      <!-- Dinamik Favoriler Gelecek -->
+    </div>
+    <div id="favoriBosMesaj" style="display: none; text-align: center; color: #64748b; padding: 60px 20px;">
+      <i class="fa-regular fa-heart" style="font-size: 4rem; margin-bottom: 20px; color: #cbd5e1;"></i>
+      <h2 style="color: #1a1a1a; margin-bottom: 15px; font-size: 1.5rem;">Favori Ürününüz Bulunmuyor</h2>
+      <p style="margin-bottom: 25px;">Beğendiğiniz ürünleri favorilerinize ekleyerek daha sonra kolayca bulabilirsiniz.</p>
+      <a href="urunler.html" class="btn btn-birincil">Alışverişe Başla</a>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-alt" style="justify-content: center;">
+      <span>&copy; 2026 Üstform. Tüm hakları saklıdır.</span>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Main.js'deki render fonksiyonu kullanılarak sadece favoriler çizilecek
+      const favoriler = JSON.parse(localStorage.getItem('favoriler')) || [];
+      const favoriUrunler = typeof urunleriGetir === 'function' ? urunleriGetir().filter(u => favoriler.includes(u.id)) : [];
+
+      if (favoriler.length === 0 || favoriUrunler.length === 0) {
+        document.getElementById('favoriBosMesaj').style.display = 'block';
+      } else {
+        if (typeof renderUrunler === 'function') {
+          renderUrunler('favoriUrunListesi', favoriUrunler);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
