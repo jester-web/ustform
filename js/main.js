@@ -965,22 +965,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 3000);
     };
 
-    // ── 12. Çerez & WhatsApp & Top Banner ──
-    if (!sessionStorage.getItem('topBannerKapatildi')) {
-        const topBanner = document.createElement('div');
-        topBanner.className = 'top-banner';
-        topBanner.innerHTML = `
-            <span>🔥 İlk siparişine özel %15 İndirim! Kodu: <strong>USTFORM15</strong></span>
-            <span class="kapat-btn" id="topBannerKapat"><i class="fa-solid fa-xmark"></i></span>
-        `;
-        document.body.insertBefore(topBanner, document.body.firstChild);
-        
-        document.getElementById('topBannerKapat').addEventListener('click', () => {
-            sessionStorage.setItem('topBannerKapatildi', 'true');
-            topBanner.remove();
-        });
-    }
-
+    // ── 12. Çerez & WhatsApp ──
     if (!localStorage.getItem('cerezKabul')) {
         const cookieBanner = document.createElement('div');
         cookieBanner.className = 'cookie-banner';
@@ -988,13 +973,20 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="cookie-content">
                 <p>Size daha iyi bir alışveriş deneyimi sunabilmek için çerezleri kullanıyoruz.</p>
                 <div class="cookie-buttons">
+                    <button id="reddetBtn" class="btn" style="padding: 8px 16px; background: transparent; border: 1px solid var(--vurgu); color: var(--vurgu);">Reddet</button>
                     <button id="kabulEtBtn" class="btn btn-birincil" style="padding: 8px 16px;">Kabul Et</button>
                 </div>
             </div>
         `;
         document.body.appendChild(cookieBanner);
+        
         document.getElementById('kabulEtBtn').addEventListener('click', () => {
             localStorage.setItem('cerezKabul', 'true');
+            cookieBanner.remove();
+        });
+
+        document.getElementById('reddetBtn').addEventListener('click', () => {
+            localStorage.setItem('cerezKabul', 'false');
             cookieBanner.remove();
         });
     }

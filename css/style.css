@@ -1130,12 +1130,13 @@ ul {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(13, 13, 13, 0.96);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--vurgu);
   z-index: 9999;
   padding: 15px 5%;
   transition: opacity 0.3s ease;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .cookie-content {
@@ -1148,8 +1149,8 @@ ul {
 }
 
 .cookie-content p {
-  font-size: 0.8rem;
-  color: var(--siyah);
+  font-size: 0.85rem;
+  color: var(--beyaz);
   margin: 0;
 }
 
