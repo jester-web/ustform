@@ -921,6 +921,21 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     // ── 12. Çerez & WhatsApp & Top Banner ──
+    if (!sessionStorage.getItem('topBannerKapatildi')) {
+        const topBanner = document.createElement('div');
+        topBanner.className = 'top-banner';
+        topBanner.innerHTML = `
+            <span>🔥 İlk siparişine özel %15 İndirim! Kodu: <strong>USTFORM15</strong></span>
+            <span class="kapat-btn" id="topBannerKapat"><i class="fa-solid fa-xmark"></i></span>
+        `;
+        document.body.insertBefore(topBanner, document.body.firstChild);
+        
+        document.getElementById('topBannerKapat').addEventListener('click', () => {
+            sessionStorage.setItem('topBannerKapatildi', 'true');
+            topBanner.remove();
+        });
+    }
+
     if (!localStorage.getItem('cerezKabul')) {
         const cookieBanner = document.createElement('div');
         cookieBanner.className = 'cookie-banner';
