@@ -1546,8 +1546,7 @@ ul {
   padding: 10px 5%;
   font-size: 0.85rem;
   font-weight: 500;
-  position: sticky;
-  top: 0;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
