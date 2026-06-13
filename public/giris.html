@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giriş Yap — ÜSTFORM</title>
+  <meta name="description" content="Hesabınıza giriş yapın." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="images/ustform.png">
+</head>
+
+<body>
+
+  <!-- ── NAVİGASYON ── -->
+  <nav class="nav mega-nav">
+        <ul class="nav-links nav-left" id="navLinksLeft">
+      <li class="mega-hover" data-mega="erkek"><a href="urunler.html?kategori=erkek">ERKEK</a></li>
+      <li class="mega-hover" data-mega="kadin"><a href="urunler.html?kategori=kadin">KADIN</a></li>
+      <li><a href="hakkinda.html">HAKKINDA</a></li>
+      <li><a href="iletisim.html">İLETİŞİM</a></li>
+    </ul>
+
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Logo" class="nav-logo-img">
+    </a>
+
+    <ul class="nav-links nav-right" id="navLinksRight">
+      <li class="nav-ikonlar">
+        <a href="#" id="aramaToggle"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="giris.html" id="hesabimLinkKaan">Kaan</a>
+        <a href="#" class="nav-sepet" id="offcanvasSepetBtn"><i class="fa-solid fa-box"></i> <span id="sepetSayac"
+            style="font-size:0.75rem;">0</span></a>
+      </li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menüyü aç/kapa">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mega Menu -->
+  <div class="mega-menu" id="megaMenu">
+    <div class="mega-menu-ic" id="megaMenuIcerik"></div>
+  </div>
+
+  <!-- Mega Menu -->
+  <div class="mega-menu" id="megaMenu">
+    <div class="mega-menu-ic" id="megaMenuIcerik"></div>
+  </div>
+
+  <!-- ── İÇERİK ── -->
+  <div class="auth-bolum">
+    <div class="auth-kutu">
+      <h2>Giriş Yap</h2>
+      <p>Hesabınıza erişmek için bilgilerinizi girin.</p>
+      <form id="girisForm">
+        <div class="form-grup">
+          <label for="email">E-posta Adresi</label>
+          <input type="email" id="email" required placeholder="ornek@eposta.com">
+        </div>
+        <div class="form-grup">
+          <label for="sifre">Şifre</label>
+          <input type="password" id="sifre" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-birincil" style="width:100%; justify-content:center;">Giriş Yap</button>
+      </form>
+      <div class="auth-link">
+        Hesabınız yok mu? <a href="kayit.html">Kayıt Ol</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-alt" style="justify-content: center;">
+      <span>&copy; 2026 Üstform. Tüm hakları saklıdır.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const aktif = JSON.parse(localStorage.getItem('aktifKullanici'));
+      if (aktif) {
+        window.location.href = 'profil.html';
+      }
+    });
+
+    document.getElementById('girisForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const sifre = document.getElementById('sifre').value;
+
+      fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, sifre })
+      })
+      .then(res => {
+        if (!res.ok) throw new Error('E-posta veya şifre hatalı. Kayıtlı değilseniz önce kayıt olunuz.');
+        return res.json();
+      })
+      .then(kullanici => {
+        localStorage.setItem('aktifKullanici', JSON.stringify(kullanici));
+        if (kullanici.role === 'admin') {
+          window.location.href = 'admin.html';
+        } else {
+          window.location.href = 'index.html';
+        }
+      })
+      .catch(err => alert(err.message));
+    });
+  </script>
+</body>
+
+</html>

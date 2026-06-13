@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ürünler — ÜSTFORM</title>
+  <meta name="description" content="Üstform koleksiyonunu keşfet. Organik pamuklu, sınırlı üretim premium tişörtler." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="images/ustform.png">
+</head>
+
+<body>
+
+  <!-- ── NAVİGASYON ── -->
+  <nav class="nav mega-nav">
+    <ul class="nav-links nav-left" id="navLinksLeft">
+      <li class="mega-hover" data-mega="erkek"><a href="urunler.html?kategori=erkek">ERKEK</a></li>
+      <li class="mega-hover" data-mega="kadin"><a href="urunler.html?kategori=kadin">KADIN</a></li>
+      <li><a href="hakkinda.html">HAKKINDA</a></li>
+      <li><a href="iletisim.html">İLETİŞİM</a></li>
+    </ul>
+
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Logo" class="nav-logo-img">
+    </a>
+
+    <ul class="nav-links nav-right" id="navLinksRight">
+      <li class="nav-ikonlar">
+        <a href="#" id="aramaToggle"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="giris.html" id="hesabimLinkKaan">Kaan</a>
+        <a href="#" class="nav-sepet" id="offcanvasSepetBtn"><i class="fa-solid fa-box"></i> <span id="sepetSayac"
+            style="font-size:0.75rem;">0</span></a>
+      </li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menüyü aç/kapa">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mega Menu -->
+  <div class="mega-menu" id="megaMenu">
+    <div class="mega-menu-ic" id="megaMenuIcerik"></div>
+  </div>
+
+  <!-- Mega Menu -->
+  <div class="mega-menu" id="megaMenu">
+    <div class="mega-menu-ic" id="megaMenuIcerik"></div>
+  </div>
+
+  <!-- ── YENİ YATAY FİLTRE BAR ── -->
+  <div class="yatay-filtre-bar">
+    <div class="yfb-ust">
+      <div class="yfb-breadcrumbs" id="sayfaBreadcrumbs">Ana Sayfa / Tüm Ürünler</div>
+    </div>
+    <div class="yfb-alt">
+      <div class="yfb-baslik" id="yfbBaslik">Tüm Koleksiyon</div>
+      <div class="yfb-kategoriler" id="yfbAltKategoriler">
+        <button class="filtre-btn aktif" data-filtre="hepsi">Tümü</button>
+        <button class="filtre-btn" data-filtre="yeni">Yeni</button>
+        <button class="filtre-btn" data-filtre="indirim">İndirimli</button>
+        <button class="filtre-btn" data-filtre="sinirli">Sınırlı</button>
+      </div>
+      <div class="yfb-araclar">
+        <span class="yfb-sayac" id="yfbSayac">0 ürün</span>
+
+        <button class="btn-filtre-yeni"><i class="fa-solid fa-filter"></i> Filtre</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ÜRÜN GRIDI ── -->
+  <div class="urunler-alan">
+    <div class="urun-grid" id="tumUrunListesi">
+      <!-- Dinamik Ürünler -->
+    </div>
+  </div>
+
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-ic">
+      <div>
+        <div class="footer-logo">ÜST<span>FORM</span></div>
+        <p class="footer-aciklama">Sıradan giysilere değil, ifadeye inananlar için sınırlı üretim premium tişört
+          markası.</p>
+        <div class="sosyal-linkler">
+          <a href="#" class="sosyal-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="sosyal-link" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" class="sosyal-link" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-baslik">Mağaza</div>
+        <ul class="footer-listesi">
+          <li><a href="urunler.html?f=yeni">Yeni Gelenler</a></li>
+          <li><a href="urunler.html?f=indirim">İndirimli</a></li>
+          <li><a href="urunler.html?f=sinirli">Sınırlı Sürüm</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-baslik">Bilgi</div>
+        <ul class="footer-listesi">
+          <li><a href="hakkinda.html">Hakkımızda</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="iletisim.html">Kargo & İade</a></li>
+          <li><a href="hakkinda.html">Gizlilik Politikası</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-baslik">Yardım</div>
+        <ul class="footer-listesi">
+          <li><a href="urun-detay.html">Beden Rehberi</a></li>
+          <li><a href="urun-detay.html">Yıkama Talimatları</a></li>
+          <li><a href="profil.html">Sipariş Takibi</a></li>
+          <li><a href="iletisim.html">SSS</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-alt">
+      <span>&copy; 2026 Üstform. Tüm hakları saklıdır.</span>
+      <span>Ücretsiz lisanslı görseller: Unsplash · Pexels</span>
+    </div>
+  </footer>
+  <!-- ── OFFCANVAS FİLTRE ── -->
+  <div class="offcanvas-overlay" id="offcanvasOverlay"></div>
+  <div class="offcanvas-filtre" id="offcanvasFiltre">
+    <div class="offcanvas-header">
+      <h3>FİLTRELE</h3>
+      <button class="offcanvas-kapat" id="kapatFiltreBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="offcanvas-icerik" style="gap: 30px;">
+      <!-- Beden -->
+      <div class="filtre-grup">
+        <h4 style="color:var(--beyaz); margin-bottom:15px; font-family:var(--font-baslik); font-size:1.2rem;">Beden</h4>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <label style="color:var(--gri-3); display:flex; align-items:center; gap:5px; cursor:pointer;">
+            <input type="checkbox" class="filtre-checkbox-beden" value="S"> S
+          </label>
+          <label style="color:var(--gri-3); display:flex; align-items:center; gap:5px; cursor:pointer;">
+            <input type="checkbox" class="filtre-checkbox-beden" value="M"> M
+          </label>
+          <label style="color:var(--gri-3); display:flex; align-items:center; gap:5px; cursor:pointer;">
+            <input type="checkbox" class="filtre-checkbox-beden" value="L"> L
+          </label>
+          <label style="color:var(--gri-3); display:flex; align-items:center; gap:5px; cursor:pointer;">
+            <input type="checkbox" class="filtre-checkbox-beden" value="XL"> XL
+          </label>
+        </div>
+      </div>
+      <!-- Renk -->
+      <div class="filtre-grup">
+        <h4 style="color:var(--beyaz); margin-bottom:15px; font-family:var(--font-baslik); font-size:1.2rem;">Renk</h4>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <label style="color:var(--gri-3); display:flex; align-items:center; gap:5px; cursor:pointer;">
+            <input type="checkbox" class="filtre-checkbox-renk" value="Siyah"> Siyah
+          </label>
+          <label style="color:var(--gri-3); display:flex; align-items:center; gap:5px; cursor:pointer;">
+            <input type="checkbox" class="filtre-checkbox-renk" value="Beyaz"> Beyaz
+          </label>
+          <label style="color:var(--gri-3); display:flex; align-items:center; gap:5px; cursor:pointer;">
+            <input type="checkbox" class="filtre-checkbox-renk" value="Lacivert"> Lacivert
+          </label>
+          <label style="color:var(--gri-3); display:flex; align-items:center; gap:5px; cursor:pointer;">
+            <input type="checkbox" class="filtre-checkbox-renk" value="Bordo"> Bordo
+          </label>
+        </div>
+      </div>
+      <!-- Fiyat -->
+      <div class="filtre-grup">
+        <h4 style="color:var(--beyaz); margin-bottom:15px; font-family:var(--font-baslik); font-size:1.2rem;">Fiyat</h4>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <label style="color:var(--gri-3); display:flex; align-items:center; gap:5px; cursor:pointer;">
+            <input type="checkbox" class="filtre-checkbox-fiyat" value="0-500"> 0₺ - 500₺
+          </label>
+          <label style="color:var(--gri-3); display:flex; align-items:center; gap:5px; cursor:pointer;">
+            <input type="checkbox" class="filtre-checkbox-fiyat" value="500-1000"> 500₺ - 1000₺
+          </label>
+          <label style="color:var(--gri-3); display:flex; align-items:center; gap:5px; cursor:pointer;">
+            <input type="checkbox" class="filtre-checkbox-fiyat" value="1000+"> 1000₺ ve üzeri
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="offcanvas-footer">
+      <button class="btn btn-birincil" style="width:100%; justify-content:center;" id="btnFiltreUygula">Uygula</button>
+    </div>
+  </div>
+
+  
+  <script src="js/main.js"></script>
+</body>
+
+</html>
